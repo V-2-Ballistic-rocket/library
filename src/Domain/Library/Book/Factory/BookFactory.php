@@ -4,6 +4,7 @@ namespace App\Domain\Library\Book\Factory;
 
 use App\Domain\Library\Book\Book;
 use App\Domain\Library\Book\Dto\CreateBookDto;
+use App\Domain\Library\Book\IncorrectBookException;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class BookFactory
@@ -17,7 +18,7 @@ class BookFactory
     {
         $errors = $this->validator->validate($createBookDto);
         if(count($errors) > 0){
-            throw new UserException($errors);
+            throw new IncorrectBookException($errors);
         }
         return new Book(
             $createBookDto->name,
