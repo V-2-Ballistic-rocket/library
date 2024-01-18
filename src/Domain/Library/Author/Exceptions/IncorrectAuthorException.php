@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Domain\Library\Book;
+namespace App\Domain\Library\Author\Exceptions;
 
 use App\DomainLayer\Exceptions\DomainException;
 use Throwable;
 
-class IncorrectBookException extends DomainException
+class IncorrectAuthorException extends DomainException
 {
     public function __construct(
-        string $message = "Некорректно введены данные книги",
+        string $message = "Некорректно введены данные писателя",
         int $code = 0,
         Throwable $previous = null
     )

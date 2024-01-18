@@ -21,7 +21,10 @@ readonly class CreateBookDto
         )]
         public string $description = '',
         #[CustomAssert\ContainsRating]
-        public float $rating = 0
+        public float $rating = 0,
+        #[Assert\NotBlank]
+        public array $authorsId = []
+
     )
     {}
 }

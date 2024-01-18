@@ -1,11 +1,14 @@
 <?php
 namespace App\Domain\Library\Book;
+
 class Book
 {
     public function __construct(
         private string $name = '',
         private string $description = '',
-        private float  $rating = 0
+        private float  $rating = 0,
+        private array $authorsId = [],
+        private string $id = ''
     )
     {}
 
@@ -22,5 +25,15 @@ class Book
     public function getRating(): float
     {
         return $this->rating;
+    }
+
+    public function getId(): string
+    {
+        return $this->id;
+    }
+
+    public function getAuthorsId(): array
+    {
+        return $this->authorsId;
     }
 }

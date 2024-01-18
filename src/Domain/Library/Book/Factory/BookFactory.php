@@ -4,7 +4,8 @@ namespace App\Domain\Library\Book\Factory;
 
 use App\Domain\Library\Book\Book;
 use App\Domain\Library\Book\Dto\CreateBookDto;
-use App\Domain\Library\Book\IncorrectBookException;
+use App\Domain\Library\Book\Exceptions\IncorrectBookException;
+use Symfony\Component\Uid\Uuid;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class BookFactory
@@ -23,7 +24,9 @@ class BookFactory
         return new Book(
             $createBookDto->name,
             $createBookDto->description,
-            $createBookDto->rating
+            $createBookDto->rating,
+            $createBookDto->authorsId,
+            Uuid::v1()
         );
     }
 }
