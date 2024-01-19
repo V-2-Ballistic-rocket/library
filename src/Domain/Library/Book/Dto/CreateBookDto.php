@@ -8,7 +8,7 @@ readonly class CreateBookDto
     public function __construct(
         #[Assert\Length(
             min: 3,
-            max: 300,
+            max: 255,
             minMessage: 'Название слишком короткое',
             maxMessage: 'Максимальная длина названия {{ limit }} символов',
         )]

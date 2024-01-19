@@ -10,12 +10,12 @@ services:
     environment:
       PHP_IDE_CONFIG: "serverName=Docker"
 
-  postgres:
+  database:
     image: postgres:${POSTGRES_VERSION:-15}-alpine
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_DB: ${POSTGRES_DB:-app}
+      POSTGRES_DB: ${POSTGRES_DB:-library}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
     volumes:

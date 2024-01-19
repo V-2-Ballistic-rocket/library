@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpDockerContainerSettings">
+    <list>
+      <map>
+        <entry key="4f94b9eb-fe7e-4ee6-a0c9-c8aaeece2db1">
+          <value>
+            <DockerContainerSettings>
+              <option name="version" value="1" />
+              <option name="volumeBindings">
+                <list>
+                  <DockerVolumeBindingImpl>
+                    <option name="containerPath" value="/opt/project" />
+                    <option name="hostPath" value="$PROJECT_DIR$" />
+                  </DockerVolumeBindingImpl>
+                </list>
+              </option>
+            </DockerContainerSettings>
+          </value>
+        </entry>
+        <entry key="93c0f7a7-f708-4c39-9fd8-c7dfa4470f52">
+          <value>
+            <DockerContainerSettings>
+              <option name="version" value="1" />
+              <option name="volumeBindings">
+                <list>
+                  <DockerVolumeBindingImpl>
+                    <option name="containerPath" value="/opt/project" />
+                    <option name="hostPath" value="$PROJECT_DIR$" />
+                  </DockerVolumeBindingImpl>
+                </list>
+              </option>
+            </DockerContainerSettings>
+          </value>
+        </entry>
+      </map>
+    </list>
+  </component>
+</project>

@@ -15,7 +15,7 @@ class Author
 
 
 
-    public function getFirsName(): string
+    public function getFirstName(): string
     {
         return $this->firsName;
     }

@@ -23,7 +23,7 @@ class ContainsRatingValidator extends ConstraintValidator
             throw new UnexpectedTypeException($value, 'int');
         }
 
-        if(intval($value) >= 10 || intval($value) <= 0 || iconv_strlen($value) < 4){
+        if(intval($value) > 10 or intval($value) < 0 or iconv_strlen($value) > 3){
             $this->context->buildViolation($constraint->message)
                 ->setParameter('{{ value }}', $value)
                 ->addViolation();

@@ -4,19 +4,19 @@ namespace App\Domain\Library\Book\BookAdder;
 
 use App\Domain\Library\Book\Dto\CreateBookDto;
 use App\Domain\Library\Book\Factory\BookFactory;
-use App\Domain\Library\Store\LibraryStoreManager;
+use App\Domain\Library\Storage\LibraryStorageManager;
 
 class BookAdder
 {
     public function __construct(
-        private LibraryStoreManager $libraryStoreManager,
-        private BookFactory $bookFactory
+        private LibraryStorageManager $libraryStorageManager,
+        private BookFactory           $bookFactory
     )
     {}
 
-    public function AddNewBook(CreateBookDto $createBookDto): void
+    public function addNewBook(CreateBookDto $createBookDto): void
     {
         $book = $this->bookFactory->createBook($createBookDto);
-        $this->libraryStoreManager->addNewBook($book);
+        $this->libraryStorageManager->addNewBook($book);
     }
 }

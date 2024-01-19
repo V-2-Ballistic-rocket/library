@@ -15,18 +15,19 @@ class BookFactory
     )
     {}
 
-    public function createBook(CreateBookDto $createBookDto): Book
+    public function createBook(CreateBookDto $createBookDto): ?Book
     {
         $errors = $this->validator->validate($createBookDto);
         if(count($errors) > 0){
             throw new IncorrectBookException($errors);
+        } else {
+            return new Book(
+                $createBookDto->name,
+                $createBookDto->description,
+                $createBookDto->rating,
+                $createBookDto->authorsId,
+                Uuid::v1()
+            );
         }
-        return new Book(
-            $createBookDto->name,
-            $createBookDto->description,
-            $createBookDto->rating,
-            $createBookDto->authorsId,
-            Uuid::v1()
-        );
     }
 }

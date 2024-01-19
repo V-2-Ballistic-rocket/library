@@ -2,11 +2,12 @@
 namespace App\common\Validators;
 
 use Symfony\Component\Validator\Attribute\HasNamedArguments;
+use Symfony\Component\Validator\Constraint;
 
 #[\Attribute]
-class ContainsRating extends \Symfony\Component\Validator\Constraint
+class ContainsRating extends Constraint
 {
-    public $message = 'Рейтинг  "{{ value }}" указан некорректно.';
+    public $message = 'Рейтинг  "{{ string }}" указан некорректно.';
 
     #[HasNamedArguments]
     public function __construct(
