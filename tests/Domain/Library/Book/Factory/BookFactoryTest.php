@@ -6,26 +6,41 @@ use App\Domain\Library\Book\Book;
 use App\Domain\Library\Book\Dto\CreateBookDto;
 use App\Domain\Library\Book\Factory\BookFactory;
 use PHPUnit\Framework\TestCase;
+use Symfony\Component\Uid\Uuid;
 use Symfony\Component\Validator\Validation;
 
 class BookFactoryTest extends TestCase
 {
-    public function testSomething(): void
+    /**
+     * @dataProvider createBookDtoProvider
+     */
+    public function testSomething(CreateBookDto $createBookDto): void
     {
         $validator = Validation::createValidator();
         $factory = new BookFactory($validator);
 
-        $dto = new CreateBookDto(
-            'disgardium 2',
-            'vr & mmorpg',
-            8.2
-        );
-
-        $book = $factory->createBook($dto);
+        $book = $factory->createBook($createBookDto);
 
         $this->assertInstanceOf(Book::class, $book);
-        $this->assertEquals('disgardium 2', $book->getName());
-        $this->assertEquals('vr & mmorpg', $book->getDescription());
-        $this->assertEquals(8.2, $book->getRating());
+        $this->assertEquals($createBookDto->name, $book->getName());
+        $this->assertEquals($createBookDto->description, $book->getDescription());
+        $this->assertEquals($createBookDto->rating, $book->getRating());
+        $this->assertEquals($createBookDto->price, $book->getPrice());
+        $this->assertEquals($createBookDto->authorsName, $book->getAuthorsName());
+    }
+
+    public function createBookDtoProvider(): array
+    {
+        return [
+            [
+                new CreateBookDto(
+                'book name',
+                'book description',
+                8,
+                '400,00',
+                ['Nestor Shilo']
+                )
+            ]
+        ];
     }
 }
