@@ -55,7 +55,6 @@ class LibraryPostgresManager implements LibraryStorageManager
         $repository = $entityManager->getRepository(Book::class);
         $books = $repository->findAll();
         $array = $this->bookMapper->mapToArray($books);
-
         return $this->collectionMapper->mapFromArray($array);
     }
 }

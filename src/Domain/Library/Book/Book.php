@@ -4,12 +4,12 @@ namespace App\Domain\Library\Book;
 class Book
 {
     public function __construct(
+        private string $id = '',
         private string $name = '',
         private string $description = '',
         private float  $rating = 0,
-        private array  $authorsName = [],
         private string $price = '',
-        private string $id = ''
+        private array  $authorsName = []
     )
     {}
 

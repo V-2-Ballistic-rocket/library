@@ -22,11 +22,12 @@ class BookFactory
             throw new IncorrectBookException($errors);
         } else {
             return new Book(
+                Uuid::v1(),
                 $createBookDto->name,
                 $createBookDto->description,
                 $createBookDto->rating,
-                $createBookDto->authorsName,
-                Uuid::v1()
+                $createBookDto->price,
+                $createBookDto->authorsName
             );
         }
     }

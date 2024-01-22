@@ -9,7 +9,7 @@ class BookMapper
         $books = [];
         foreach ($booksEntities as $book)
         {
-            $books = [
+            $books[] = [
                 'id' => $book->getId(),
                 'name' => $book->getName(),
                 'description' => $book->getDescription(),
@@ -18,6 +18,7 @@ class BookMapper
                 'authorsName' => $book->getAuthorsName()
             ];
         }
+
         return $books;
     }
 }

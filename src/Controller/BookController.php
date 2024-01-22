@@ -2,30 +2,28 @@
 
 namespace App\Controller;
 
-use App\Controller\DataMappers\AddBookRequestDtoMapper;
-use App\Controller\Dto\AddBookRequestDto;
+use App\Controller\DataMappers\CreateBookDtoMapper;
 use App\Domain\Library\Book\Dto\DeleteBookDto;
 use App\Domain\Library\Book\Storage\BookStorageManager;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
-
 class BookController extends AbstractController
 {
     public function __construct(
         private BookStorageManager $bookStorageManager,
-        private AddBookRequestDtoMapper $addBookRequestDtoMapper
+        private CreateBookDtoMapper $addBookRequestDtoMapper
     )
     {
     }
 
     #[Route('/book', name: 'add_books', methods: ['POST'])]
-    public function addBook(
-        AddBookRequestDto $dto, string $name = ''
-    ): JsonResponse
+    public function addBook(Request $request): JsonResponse
     {
-        dd($name);
-        $createBookDto = $this->addBookRequestDtoMapper->mapToAddBookDto($dto);
+        $data = $request->request->all();
+        $createBookDto = $this->addBookRequestDtoMapper->mapFromArray($data);
+
         try {
             $this->bookStorageManager->addNewBook($createBookDto);
         } catch (\Exception $exception) {
@@ -37,10 +35,10 @@ class BookController extends AbstractController
     #[Route('/book', name: 'get_book', methods: ['GET'])]
     public function getBook(): JsonResponse
     {
-        return $this->json([$this->bookStorageManager->getBooks()], 200);
+        return new JsonResponse($this->bookStorageManager->getBooks(), 200);
     }
 
-    #[Route('/book', name: 'delete_book', methods: ['DELETE'])]
+    #[Route('/book/{id}', name: 'delete_book', methods: ['DELETE'])]
     public function deleteBook(string $id): JsonResponse
     {
         $this->bookStorageManager->deleteBook(new DeleteBookDto($id));

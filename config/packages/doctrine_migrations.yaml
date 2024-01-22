@@ -4,3 +4,5 @@ doctrine_migrations:
         # as migrations classes should NOT be autoloaded
         'Storage\Postgres\Migrations': '%kernel.project_dir%/src/migrations'
     enable_profiler: false
+    migrations:
+        - "App\\migrations\\Version20240122081337"

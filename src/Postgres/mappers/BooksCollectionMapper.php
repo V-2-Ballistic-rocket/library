@@ -11,7 +11,8 @@ class BooksCollectionMapper implements BookCollectionDtoMapper
     public function mapFromArray(array $data): BookDtoCollection
     {
         $collection = new BookDtoCollection();
-        foreach ($data as $key => $book){
+
+        foreach ($data as $book){
             $collection[] = new BookDto(
                 $book['id'],
                 $book['name'],

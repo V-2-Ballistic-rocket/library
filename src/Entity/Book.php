@@ -37,9 +37,15 @@ class Book
         array $authorsName = []
     )
     {
+        $this->id = $id;
+        $this->name = $name;
+        $this->description = $description;
+        $this->rating = $rating;
+        $this->price = $price;
+        $this->authorsName = $authorsName;
     }
 
-    public function getId(): ?int
+    public function getId(): ?string
     {
         return $this->id;
     }

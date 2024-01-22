@@ -29,6 +29,7 @@ class BookStorageManager
         ));
     }
 
+
     public function deleteBook(DeleteBookDto $deleteBookDto): void
     {
         $this->libraryStorageManager->deleteBook($deleteBookDto);
