@@ -16,8 +16,8 @@ RUN apk add --no-cache bash && \
     curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.alpine.sh' | bash && \
     apk add symfony-cli
 
-RUN git config --global user.name "k.petrushina" && \
-    git config --global user.email k.petrushina@etpgpb.ru
+RUN git config --global user.name "usergit" && \
+    git config --global user.email gituser@mail.com
 
 
 WORKDIR /app

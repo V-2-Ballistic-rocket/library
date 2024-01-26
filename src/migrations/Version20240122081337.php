@@ -20,7 +20,6 @@ final class Version20240122081337 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('DROP SEQUENCE book_id_seq CASCADE');
         $this->addSql('CREATE TABLE book (
             id VARCHAR(255) NOT NULL,
             name TEXT NOT NULL,
