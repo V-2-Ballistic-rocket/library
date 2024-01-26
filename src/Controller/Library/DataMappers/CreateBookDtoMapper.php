@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Controller\DataMappers;
+namespace App\Controller\Library\DataMappers;
 
-use App\Controller\Dto\AddBookRequestDto;
 use App\Domain\Library\Book\Dto\CreateBookDto;
 
 class CreateBookDtoMapper

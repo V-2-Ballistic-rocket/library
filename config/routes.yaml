@@ -1,5 +1,8 @@
 controllers:
     resource:
-        path: ../src/Controller/
+        path: ../src/Controller/Library/
         namespace: App\Controller
     type: attribute
+    api_token:
+        path: ../src/Controller/Security/
+        namespace: App\Controller\Security

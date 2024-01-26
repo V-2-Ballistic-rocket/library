@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Dto;
+namespace App\Controller\Library\Dto;
 
 readonly class AddBookRequestDto
 {

@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Library;
 
-use App\Controller\DataMappers\CreateBookDtoMapper;
+use App\Controller\Library\DataMappers\CreateBookDtoMapper;
 use App\Domain\Library\Book\Dto\DeleteBookDto;
 use App\Domain\Library\Book\Storage\BookStorageManager;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+
 class BookController extends AbstractController
 {
     public function __construct(
